@@ -23,6 +23,11 @@
                 </div>
             </div>
         @endforeach
+        <div class="col-sm-4" style="margin-top: 20px">
+            <a href="{{url('/essays')}}"><button class="btn btn-primary btn-lg btn-block" type="button" aria-expanded="true">
+                Essays
+            </button></a>
+        </div>
     </div>
 </div>
 @endsection

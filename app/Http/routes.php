@@ -17,8 +17,49 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    return json_encode(new \Carbon\Carbon('2016-08-18 05:28:19'));
+//    return json_encode(new \Carbon\Carbon('2016-08-18 05:28:19'));
+    $file = fopen(public_path("antonyms.csv"),"r");
+    $ques = array();
+    $count = 0;
+
+    while(! feof($file)) {
+        $array = fgetcsv($file);
+        if($count > 0) {
+
+            for($i = 1; $i<=4; $i++) {
+                if(!empty($array[$i])) {
+//                    $answer = $array[$i];
+                    $level = $i;
+//                    $que = array(
+//                        'question'=>'Antonym of '.$array[0].' is?',
+//                        'level'=>$level,
+//                        'answer'=>$answer,
+//                        'type'=>1
+//                    );
+//                    array_push($ques, $que);
+
+                    $answer = \App\Answer::firstOrCreate(['statement'=>$array[$i], 'level'=>$level, 'category_id' => 2]);
+                    \App\Question::create([
+                        'statement'=>'Antonym of '.$array[0].' is?',
+                        'level'=>$level,
+                        'category_id'=>2,
+                        'type'=>1,
+                        'answer_id'=> $answer->id,
+                    ]);
+                }
+            }
+        }
+        $count++;
+    }
+//    header('Content-Type: application/json');
+//    echo json_encode($ques);
+
+    fclose($file);
+
+//    return response()->json($ques);
+    return "Yay";
 });
+
 
 
 Route::get('/games/category/{catId}/level/{level}', ['as'=>'quiz', 'uses'=>'QuizController@instruction']);
@@ -31,6 +72,15 @@ Route::post('/game/{uri}/answer/{qno}', ['as'=>'quiz.answer', 'uses'=>'QuizContr
 
 Route::auth();
 
+Route::get('/essays', function () {
+    $essays = \App\Essay::all();
+    return view('essay.index', compact('essays'));
+});
+Route::get('/essays/{id}', function ($id) {
+    $essay = \App\Essay::find($id);
+    return view('essay.show', compact('essay'));
+});
+
 Route::get('/home', 'HomeController@index');
 
 Route::get('/admin', function () {
@@ -40,3 +90,4 @@ Route::get('/admin', function () {
 Route::resource('/admin/questions', 'QuestionController');
 Route::resource('/admin/category', 'CategoryController');
 Route::resource('/admin/answers', 'AnswerController');
+Route::resource('/admin/essays', 'EssayController');

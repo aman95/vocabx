@@ -4,37 +4,24 @@
     <div class="container">
         <div class="page-header">
             <h1><strong>Vocab</strong>, free interactive vocabulary games.<br>
-                <small>Choose a essay to get started...</small>
+                <small>Choose a essay topic to get started...</small>
             </h1>
         </div>
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
+                <th><h4>Topic</h4></th>
+                <th><h4>Time</h4></th>
             </tr>
             </thead>
             <tbody>
+            @foreach($essays as $essay)
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <th scope="row"><a href="{{ url('/essays/'.$essay->id) }}"><h4>{{$essay->topic }}</h4></a></th>
+                {{--<td>{{ $essay->created_at }}</td>--}}
+                <td><h4>{{ \Carbon\Carbon::createFromTimeStamp(strtotime($essay->created_at))->diffForHumans() }}</h4></td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
