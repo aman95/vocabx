@@ -1,5 +1,7 @@
 <?php
 
+use \Illuminate\Support\Facades\Session;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -80,14 +82,23 @@ Route::get('/essays/{id}', function ($id) {
     $essay = \App\Essay::find($id);
     return view('essay.show', compact('essay'));
 });
+Route::get('/learn/meanings', function () {
+
+    $meaning = \App\Meaning::inRandomOrder()->whereNotIn('id', Session::get('viewed',[0]))->first();
+    if($meaning == null) {
+        Session::remove('viewed');
+    } else {
+        Session::push('viewed',$meaning->id);
+    }
+    return view('learn.meaning', compact('meaning'));
+});
+
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-});
-
+Route::get('/admin', ['as'=>'admin.index', 'uses'=>'AdminController@index']);
 Route::resource('/admin/questions', 'QuestionController');
 Route::resource('/admin/category', 'CategoryController');
 Route::resource('/admin/answers', 'AnswerController');
 Route::resource('/admin/essays', 'EssayController');
+Route::resource('/admin/meanings', 'MeaningController');

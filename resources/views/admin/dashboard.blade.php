@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.admin',['option'=>'home'])
 
 @section('content')
     <div class="container">

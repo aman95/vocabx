@@ -14,6 +14,7 @@ class EssayController extends Controller
     public function __construct(Essay $essay)
     {
         $this->essay = $essay;
+        $this->middleware('auth');
     }
 
     /**

@@ -26,6 +26,10 @@ class QuizController extends Controller
         $this->answer = $answer;
         $this->question = $question;
     }
+
+//    public function index() {
+//        return view('admin.index');
+//    }
     
     public function instruction($catId, $level)
     {

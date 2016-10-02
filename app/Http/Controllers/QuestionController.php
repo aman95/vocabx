@@ -18,6 +18,7 @@ class QuestionController extends Controller
     {
         $this->question = $question;
 //        $this->answer = $answer;
+        $this->middleware('auth');
     }
 
     /**

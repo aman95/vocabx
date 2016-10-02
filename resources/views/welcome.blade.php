@@ -28,6 +28,11 @@
                 Essays
             </button></a>
         </div>
+        <div class="col-sm-4" style="margin-top: 20px">
+            <a href="{{url('/learn/meanings')}}"><button class="btn btn-primary btn-lg btn-block" type="button" aria-expanded="true">
+                Learn Vocabulary
+            </button></a>
+        </div>
     </div>
 </div>
 @endsection

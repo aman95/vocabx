@@ -2,24 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Answer;
-use App\Category;
+use App\Meaning;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class AnswerController extends Controller
+class MeaningController extends Controller
 {
-//    protected $question;
-    protected $answer;
 
-    public function __construct(Answer $answer)
-    {
-//        $this->question = $question;
-        $this->answer = $answer;
+    protected $meaning;
+
+    public function __construct(Meaning $meaning) {
+        $this->meaning = $meaning;
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -27,8 +24,8 @@ class AnswerController extends Controller
      */
     public function index()
     {
-        $answers = $this->answer->load('category')->paginate(10);
-        return view('admin.answer.index', compact('answers'));
+        $meanings = $this->meaning->paginate(10);
+        return view('admin.meaning.index', compact('meanings'));
     }
 
     /**
@@ -38,8 +35,7 @@ class AnswerController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        return view('admin.answer.create', compact('categories'));
+        return view('admin.meaning.create');
     }
 
     /**
@@ -50,8 +46,14 @@ class AnswerController extends Controller
      */
     public function store(Request $request)
     {
-        $this->answer->create(['statement'=>$request->get('statement'), 'level'=>$request->get('level'), 'category_id'=>$request->get('category')]);
-        return redirect(route('admin.answers.index'))->with('message','Answer saved');
+        $image = $request->file('image');
+        $filename = str_random(15).'.'.$image->getClientOriginalExtension();
+        $path = public_path('uploads/meanings');
+        $image->move($path,$filename);
+        $imageURL =  url('/').'/uploads/meanings/'.$filename;
+        $this->meaning->create(['word'=> $request->get('word'), 'meaning'=>$request->get('meaning'), 'image'=>$imageURL]);
+        return redirect(route('admin.meanings.index'))->with('message', 'Meaning saved');
+
     }
 
     /**

@@ -52,6 +52,7 @@
                 <li class="@if($option === 'category') active @endif"><a href="{{ url('/admin/category') }}">Categories</a></li>
                 <li class="@if($option === 'answer') active @endif"><a href="{{ url('/admin/answers') }}">Answers</a></li>
                 <li class="@if($option === 'essay') active @endif"><a href="{{ url('/admin/essays') }}">Essays</a></li>
+                <li class="@if($option === 'meaning') active @endif"><a href="{{ route('admin.meanings.index') }}">Meanings</a></li>
                 <li class="@if($option === 'types') active @endif"><a href="{{ url('/home') }}">Types</a></li>
             </ul>
 
