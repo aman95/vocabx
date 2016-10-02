@@ -50,8 +50,8 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
-                    <li><a href="{{ url('/home') }}">Leaderboard</a></li>
-                    <li><a href="{{ url('/essays') }}">Essays</a></li>
+                    <li><a href="{{ url('/essays') }}">Essay Writing</a></li>
+                    <li><a href="{{ url('/learn/meanings') }}">Word Meanings</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

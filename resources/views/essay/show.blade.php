@@ -6,6 +6,7 @@
             <h1><strong>Topic</strong>: {{ $essay->topic }}<br>
                 <small>Submit your essays below...</small>
             </h1>
+            <p class="text-muted">{{ \Carbon\Carbon::createFromTimeStamp(strtotime($essay->created_at))->toFormattedDateString() }}</p>
         </div>
 
         <div id="disqus_thread"></div>

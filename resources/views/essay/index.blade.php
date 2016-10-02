@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="page-header">
-            <h1><strong>Vocab</strong>, free interactive vocabulary games.<br>
+            <h1><strong>Gyan Marga</strong><br>
                 <small>Choose a essay topic to get started...</small>
             </h1>
         </div>
@@ -19,7 +19,7 @@
             <tr>
                 <th scope="row"><a href="{{ url('/essays/'.$essay->id) }}"><h4>{{$essay->topic }}</h4></a></th>
                 {{--<td>{{ $essay->created_at }}</td>--}}
-                <td><h4>{{ \Carbon\Carbon::createFromTimeStamp(strtotime($essay->created_at))->diffForHumans() }}</h4></td>
+                <td><h4>{{ \Carbon\Carbon::createFromTimeStamp(strtotime($essay->created_at))->toFormattedDateString() }}</h4></td>
             </tr>
             @endforeach
             </tbody>

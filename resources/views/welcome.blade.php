@@ -3,11 +3,11 @@
 @section('content')
 <div class="container">
     <div class="page-header">
-        <h1><strong>Gyan Marga</strong>, free interactive vocabulary games.<br><small>Choose a category to get started...</small></h1>
+        <h1><strong>Gyan Marga</strong><br><small>Choose a category to get started...</small></h1>
     </div>
     <div class="row">
         @foreach($categories as $category)
-            <div class="col-sm-6" style="margin-top: 20px">
+            <div class="col-sm-4" style="margin-top: 20px">
                 <div class="dropdown">
                     <button class="btn btn-primary btn-lg btn-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         {{ $category->name }}
@@ -23,14 +23,14 @@
                 </div>
             </div>
         @endforeach
-        <div class="col-sm-8 col-md-offset-2" style="margin-top: 20px">
+        <div class="col-sm-4" style="margin-top: 20px">
             <a href="{{url('/essays')}}"><button class="btn btn-primary btn-lg btn-block" type="button" aria-expanded="true">
-                <h2>Essays</h2>
+                Essay Writing
             </button></a>
         </div>
-        <div class="col-sm-8 col-md-offset-2" style="margin-top: 20px">
+        <div class="col-sm-4" style="margin-top: 20px">
             <a href="{{url('/learn/meanings')}}"><button class="btn btn-primary btn-lg btn-block" type="button" aria-expanded="true">
-                <h2>Learn Vocabulary</h2>
+                Learn Vocabulary
             </button></a>
         </div>
     </div>
