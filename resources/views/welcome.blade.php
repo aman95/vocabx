@@ -7,7 +7,7 @@
     </div>
     <div class="row">
         @foreach($categories as $category)
-            <div class="col-sm-4" style="margin-top: 20px">
+            <div class="col-sm-6" style="margin-top: 20px">
                 <div class="dropdown">
                     <button class="btn btn-primary btn-lg btn-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         {{ $category->name }}
