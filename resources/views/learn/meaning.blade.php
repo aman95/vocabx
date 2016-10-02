@@ -8,7 +8,7 @@
         </div>
         @if($meaning == null)
             <div class="center-block">
-                <h3>No words left...</h3>
+                <h3>We will be back shortly with few more words...</h3>
             </div>
             <div class="row" style="margin-top:30px">
                 <div class="col-md-4 col-md-offset-4">
@@ -20,7 +20,7 @@
         @else
         <div class="row">
             <div class="col-md-4">
-                <img src="{{ $meaning->image }}" alt="{{ $meaning->word }}" class="img-responsive" width="200" height="200">
+                <img src="{{ $meaning->image }}" alt="{{ $meaning->word }}" class="img-responsive">
             </div>
             <div class="col-md-8">
                 <h2>{{ $meaning->word }}</h2>
