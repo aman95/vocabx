@@ -19,47 +19,47 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-//    return json_encode(new \Carbon\Carbon('2016-08-18 05:28:19'));
-    $file = fopen(public_path("antonyms.csv"),"r");
-    $ques = array();
-    $count = 0;
-
-    while(! feof($file)) {
-        $array = fgetcsv($file);
-        if($count > 0) {
-
-            for($i = 1; $i<=4; $i++) {
-                if(!empty($array[$i])) {
-//                    $answer = $array[$i];
-                    $level = $i;
-//                    $que = array(
-//                        'question'=>'Antonym of '.$array[0].' is?',
+////    return json_encode(new \Carbon\Carbon('2016-08-18 05:28:19'));
+//    $file = fopen(public_path("antonyms.csv"),"r");
+//    $ques = array();
+//    $count = 0;
+//
+//    while(! feof($file)) {
+//        $array = fgetcsv($file);
+//        if($count > 0) {
+//
+//            for($i = 1; $i<=4; $i++) {
+//                if(!empty($array[$i])) {
+////                    $answer = $array[$i];
+//                    $level = $i;
+////                    $que = array(
+////                        'question'=>'Antonym of '.$array[0].' is?',
+////                        'level'=>$level,
+////                        'answer'=>$answer,
+////                        'type'=>1
+////                    );
+////                    array_push($ques, $que);
+//
+//                    $answer = \App\Answer::firstOrCreate(['statement'=>$array[$i], 'level'=>$level, 'category_id' => 2]);
+//                    \App\Question::create([
+//                        'statement'=>'Antonym of '.$array[0].' is?',
 //                        'level'=>$level,
-//                        'answer'=>$answer,
-//                        'type'=>1
-//                    );
-//                    array_push($ques, $que);
-
-                    $answer = \App\Answer::firstOrCreate(['statement'=>$array[$i], 'level'=>$level, 'category_id' => 2]);
-                    \App\Question::create([
-                        'statement'=>'Antonym of '.$array[0].' is?',
-                        'level'=>$level,
-                        'category_id'=>2,
-                        'type'=>1,
-                        'answer_id'=> $answer->id,
-                    ]);
-                }
-            }
-        }
-        $count++;
-    }
-//    header('Content-Type: application/json');
-//    echo json_encode($ques);
-
-    fclose($file);
-
-//    return response()->json($ques);
-    return "Yay";
+//                        'category_id'=>2,
+//                        'type'=>1,
+//                        'answer_id'=> $answer->id,
+//                    ]);
+//                }
+//            }
+//        }
+//        $count++;
+//    }
+////    header('Content-Type: application/json');
+////    echo json_encode($ques);
+//
+//    fclose($file);
+//
+////    return response()->json($ques);
+//    return "Yay";
 });
 
 

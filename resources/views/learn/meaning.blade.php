@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="page-header">
-            <h1><strong>Learn Word Meanings</strong><br>
+            <h1><strong>Learn vocabulary</strong><br>
             </h1>
         </div>
         @if($meaning == null)

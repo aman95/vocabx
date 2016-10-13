@@ -49,8 +49,8 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/essays') }}">Essay Writing</a></li>
-                    <li><a href="{{ url('/learn/meanings') }}">Word Meanings</a></li>
+                    <li><a href="{{ url('/essays') }}">Essay writing</a></li>
+                    <li><a href="{{ url('/learn/meanings') }}">Learn vocabulary</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

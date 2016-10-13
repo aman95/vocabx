@@ -75,7 +75,8 @@ class MeaningController extends Controller
      */
     public function edit($id)
     {
-        //
+        $meaning = $this->meaning->findOrFail($id);
+        return view('admin.meaning.edit', compact('meaning'));
     }
 
     /**
@@ -87,7 +88,19 @@ class MeaningController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $meaning = $this->meaning->findOrFail($id);
+        if($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = str_random(15).'.'.$image->getClientOriginalExtension();
+            $path = public_path('uploads/meanings');
+            $image->move($path,$filename);
+            $imageURL =  url('/').'/uploads/meanings/'.$filename;
+            $meaning->image = $imageURL;
+        }
+        $meaning->word = $request->get('word');
+        $meaning->meaning = $request->get('meaning');
+        $meaning->save();
+        return redirect(route('admin.meanings.index'))->with('message', 'Updated!');
     }
 
     /**
@@ -98,6 +111,8 @@ class MeaningController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $meaning = $this->meaning->findOrFail($id);
+        $meaning->delete();
+        return redirect()->back()->with('message', 'Deleted!');
     }
 }

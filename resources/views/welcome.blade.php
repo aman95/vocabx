@@ -25,12 +25,12 @@
         @endforeach
         <div class="col-sm-4" style="margin-top: 20px">
             <a href="{{url('/essays')}}"><button class="btn btn-primary btn-lg btn-block" type="button" aria-expanded="true">
-                Essay Writing
+                Essay writing
             </button></a>
         </div>
         <div class="col-sm-4" style="margin-top: 20px">
             <a href="{{url('/learn/meanings')}}"><button class="btn btn-primary btn-lg btn-block" type="button" aria-expanded="true">
-                Learn Vocabulary
+                Learn vocabulary
             </button></a>
         </div>
     </div>
