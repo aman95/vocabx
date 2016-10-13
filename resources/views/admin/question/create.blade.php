@@ -30,13 +30,25 @@
             <label >Type</label>
             <select class="form-control" name="type">
                 <option value="1">MCQ (Single correct)</option>
-                <option value="2">MCQ (Multiple correct)</option>
-                <option value="3">True / False</option>
+                {{--<option value="2">MCQ (Multiple correct)</option>--}}
+                {{--<option value="3">True / False</option>--}}
             </select>
         </div>
         <div class="form-group">
             <label >Correct answer</label>
             <input type="text" required class="form-control" name="answer" placeholder="Enter correct answer...">
+        </div>
+        <div class="form-group">
+            <label >Option 1</label>
+            <input type="text" required class="form-control" name="option1" placeholder="Enter option 1 answer...">
+        </div>
+        <div class="form-group">
+            <label >Option 2</label>
+            <input type="text" required class="form-control" name="option2" placeholder="Enter option 2 answer...">
+        </div>
+        <div class="form-group">
+            <label >Option 3</label>
+            <input type="text" required class="form-control" name="option3" placeholder="Enter option 3 answer...">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

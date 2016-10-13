@@ -28,7 +28,7 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $questions = $this->question->load('category', 'answer')->paginate(10);
+        $questions = $this->question->load('category')->paginate(10);
         return view('admin.question.index', compact('questions'));
 //        return $questions;
     }
@@ -52,17 +52,28 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        $answer = new Answer(['statement'=>$request->get('answer'), 'level'=>$request->get('level'), 'category_id'=>$request->get('category')]);
-        $answer->save();
+//        $answer = new Answer(['statement'=>$request->get('answer'), 'level'=>$request->get('level'), 'category_id'=>$request->get('category')]);
+//        $answer->save();
         
+//        $this->question->create([
+//            'statement'=>$request->get('statement'),
+//            'level'=>$request->get('level'),
+//            'category_id'=>$request->get('category'),
+//            'type'=>1,
+//            'answer_id'=> $answer->id,
+//        ]);
+//
         $this->question->create([
-            'statement'=>$request->get('statement'), 
-            'level'=>$request->get('level'), 
-            'category_id'=>$request->get('category'), 
-            'type'=>1, 
-            'answer_id'=> $answer->id,
+            'statement'=>$request->get('statement'),
+            'level'=>$request->get('level'),
+            'category_id'=>$request->get('category'),
+            'type'=>1,
+            'correct_answer'=> $request->get('answer'),
+            'option1'=> $request->get('option1'),
+            'option2'=> $request->get('option2'),
+            'option3'=> $request->get('option3'),
         ]);
-        
+
         return redirect(route('admin.questions.index'))->with('message','Question saved');
     }
 
@@ -108,6 +119,8 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $question = $this->question->findOrFail($id);
+        $question->delete();
+        return redirect()->back()->with('message', 'Deleted!');
     }
 }
