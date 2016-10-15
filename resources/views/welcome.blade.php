@@ -18,7 +18,7 @@
                         <li><a href="{{ route('quiz', ['catId'=>$category->id, 'level'=>2]) }}">Level 2</a></li>
                         <li><a href="{{ route('quiz', ['catId'=>$category->id, 'level'=>3]) }}">Level 3</a></li>
                         <li><a href="{{ route('quiz', ['catId'=>$category->id, 'level'=>4]) }}">Level 4</a></li>
-                        <li><a href="{{ route('quiz', ['catId'=>$category->id, 'level'=>5]) }}">Level 5</a></li>
+                        {{--<li><a href="{{ route('quiz', ['catId'=>$category->id, 'level'=>5]) }}">Level 5</a></li>--}}
                     </ul>
                 </div>
             </div>

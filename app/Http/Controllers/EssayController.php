@@ -92,6 +92,8 @@ class EssayController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $essay = $this->essay->findOrFail($id);
+        $essay->delete();
+        return redirect()->back()->with('message', 'Deleted!');
     }
 }

@@ -24,7 +24,13 @@
                 <th scope="row">{{ $essay->id }}</th>
                 <td>{{ $essay->topic }}</td>
                 <td>{{ $essay->created_at }}</td>
-                <td><a href="#"><i class="fa fa-times alert-danger" aria-hidden="true"></i></a> </td>
+                <td>
+                    <form method="post" onsubmit="return confirm('Do you really want to delete this?');" action="{{ route('admin.essays.destroy', $essay->id) }}">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit"><i class="fa fa-times alert-danger" aria-hidden="true"></i></button>
+                    </form>
+                </td>
             </tr>
         @endforeach
         </tbody>
