@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Answer;
+use App\Category;
 use App\Question;
 use App\Quiz;
 use Illuminate\Http\JsonResponse;
@@ -91,7 +92,12 @@ class QuizController extends Controller
             $time_token = Crypt::encrypt(\Carbon\Carbon::now());
             return view('quiz.start',compact('options','question','uri', 'time_token'));
         } else {
-            return $this->quiz->where(['uri'=>$uri])->first();
+            $quiz = $this->quiz->where(['uri'=>$uri])->first();
+            if(!$quiz) {
+                abort(404);
+            }
+            $category = Category::findOrFail($quiz->category_id);
+            return view('quiz.completed', compact('quiz', 'category'));
         }
 
 

@@ -37,8 +37,9 @@ $('.option').click(function (e) {
 
 $('#nextQuestion').click(function (e) {
     if(qno >= 11) {
-        document.querySelector('#queStatement').innerHTML = '<h2>Quiz Completed<br></h2>';
-        document.querySelector('#options').innerHTML = '';
+        window.location = '/game/'+game_token ;
+        // document.querySelector('#queStatement').innerHTML = '<h2>Quiz Completed<br></h2>';
+        // document.querySelector('#options').innerHTML = '';
         disableNextBtn();
         return;
     }
@@ -135,6 +136,10 @@ function checkForAns(element, mark) {
                 // console.log(nextQue);
                 nextOptions = result.options;
                 // console.log(nextOptions);
+            } else {
+                //alert('Quiz completed');
+                // window.location = '/game/'+game_token ;
+                document.querySelector('#nextQuestion').innerHTML = "Finish Quiz";
             }
         },
         error: function(xhr,status,error) {
