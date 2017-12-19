@@ -62,6 +62,10 @@ Route::get('/test', function () {
 //    return "Yay";
 });
 
+Route::get('/createAdmin', function () {
+    $user = \App\User::create(['name' => 'Aman', 'email'=>'aman1995k@gmail.com', 'password'=>bcrypt('qwerty')]);
+    return ($user);
+});
 
 
 Route::get('/games/category/{catId}/level/{level}', ['as'=>'quiz', 'uses'=>'QuizController@instruction']);
