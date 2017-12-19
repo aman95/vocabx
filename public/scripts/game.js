@@ -45,10 +45,10 @@ $('#nextQuestion').click(function (e) {
     }
     document.querySelector('#queStatement').innerHTML = '<h2>Q'+qno+'. '+nextQue+'<br><small>Choose one option:</small></h2>';
     var options = document.querySelectorAll('.option');
-    options[0].innerHTML = nextOptions[0];
-    options[1].innerHTML = nextOptions[1];
-    options[2].innerHTML = nextOptions[2];
-    options[3].innerHTML = nextOptions[3];
+    options[0].innerHTML = nextOptions[0].statement;
+    options[1].innerHTML = nextOptions[1].statement;
+    options[2].innerHTML = nextOptions[2].statement;
+    options[3].innerHTML = nextOptions[3].statement;
     enableAllOptions();
     startTimer();
     disableNextBtn();

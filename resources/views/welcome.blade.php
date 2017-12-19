@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="page-header">
-        <h1><strong>Gyan Marga</strong><br><small>Choose a category to get started...</small></h1>
+        <h1><strong>VocabX</strong><br><small>An interactive way to learn vocabulary...</small></h1>
     </div>
     <div class="row">
         @foreach($categories as $category)

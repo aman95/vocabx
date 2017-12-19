@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="page-header">
-            <h1><strong>Gyan Marga</strong><br><small>Quiz Rules:</small></h1>
+            <h1><strong>VocabX</strong><br><small>Quiz Rules:</small></h1>
         </div>
         <div class="row">
             <div class="col-md-6 col-md-offset-3">

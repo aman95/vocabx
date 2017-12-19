@@ -8,7 +8,7 @@
 @section('content')
     <div class="container">
         <div class="page-header">
-            <h1><strong>Gyan Marga</strong><br><small>Quiz is started...</small></h1>
+            <h1><strong>VocabX</strong><br><small>Quiz is started...</small></h1>
         </div>
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
@@ -30,7 +30,7 @@
         <div class="row" id="options">
             @foreach($options as $option)
                 <div class="col-sm-6" style="margin-top: 20px">
-                    <button type="button" class="btn btn-default btn-lg btn-block option">{{ $option }}</button>
+                    <button type="button" class="btn btn-default btn-lg btn-block option">{{ $option->statement }}</button>
                 </div>
             @endforeach
         </div>
