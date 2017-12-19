@@ -12,10 +12,10 @@ class RemoveAnswerIdColumnFromQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::table('questions', function (Blueprint $table) {
-//            $table->dropForeign(['answer_id']);
-            $table->dropColumn(['answer_id']);
-        });
+//        Schema::table('questions', function (Blueprint $table) {
+////            $table->dropForeign(['answer_id']);
+//            $table->dropColumn(['answer_id']);
+//        });
     }
 
     /**
@@ -25,9 +25,9 @@ class RemoveAnswerIdColumnFromQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::table('questions', function (Blueprint $table) {
-            $table->integer('answer_id')->nullable()->unsigned();
-            $table->foreign('answer_id')->references('id')->on('answers');
-        });
+//        Schema::table('questions', function (Blueprint $table) {
+//            $table->integer('answer_id')->nullable()->unsigned();
+//            $table->foreign('answer_id')->references('id')->on('answers');
+//        });
     }
 }

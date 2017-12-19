@@ -12,13 +12,13 @@ class AddOptionsToQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::table('questions', function (Blueprint $table) {
-            $table->string('correct_answer');
-            $table->string('option1');
-            $table->string('option2');
-            $table->string('option3');
-
-        });
+//        Schema::table('questions', function (Blueprint $table) {
+//            $table->string('correct_answer');
+//            $table->string('option1');
+//            $table->string('option2');
+//            $table->string('option3');
+//
+//        });
     }
 
     /**
@@ -28,11 +28,11 @@ class AddOptionsToQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::table('questions', function (Blueprint $table) {
-            $table->dropColumn('correct_answer');
-            $table->dropColumn('option1');
-            $table->dropColumn('option2');
-            $table->dropColumn('option3');
-        });
+//        Schema::table('questions', function (Blueprint $table) {
+//            $table->dropColumn('correct_answer');
+//            $table->dropColumn('option1');
+//            $table->dropColumn('option2');
+//            $table->dropColumn('option3');
+//        });
     }
 }

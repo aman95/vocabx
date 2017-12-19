@@ -11,15 +11,16 @@ class Question extends Model
         'statement',
         'level',
         'category_id',
-        'correct_answer',
-        'option1',
-        'option2',
-        'option3',
+        'answer_id',
+//        'correct_answer',
+//        'option1',
+//        'option2',
+//        'option3',
     ];
 
-//    public function answer() {
-//        return $this->belongsTo(Answer::class);
-//    }
+    public function answer() {
+        return $this->belongsTo(Answer::class);
+    }
     public function category() {
         return $this->belongsTo(Category::class);
     }
